@@ -5,6 +5,70 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <script>
+        // Paste the JavaScript code here to generate the SEO meta tag
+        const generateSEOMetaTag = (topics) => {
+          const keywords = {
+            'web development': [
+              'web development',
+              'website development',
+              'frontend development',
+              'backend development',
+              'full-stack development',
+              'responsive web design',
+              'mobile-friendly websites',
+              'custom web development',
+              'web application development',
+            ],
+            'web comic agency': [
+              'web comics',
+              'comic agency',
+              'digital comics',
+              'comic creation services',
+              'webcomic artists',
+              'comic strip development',
+              'graphic storytelling',
+              'illustration agency',
+            ],
+            'bot development': [
+              'bot development',
+              'chatbot development',
+              'AI bots',
+              'conversational bots',
+              'bot programming',
+              'bot deployment',
+              'NLP bots',
+              'automation bots',
+            ],
+            'pwa development': [
+              'PWA development',
+              'progressive web apps',
+              'PWA design',
+              'PWA optimization',
+              'offline-first apps',
+              'web app manifest',
+              'service workers',
+              'PWA frameworks',
+            ],
+          };
+
+          let allKeywords = [];
+
+          topics.forEach((topic) => {
+            if (keywords[topic]) {
+              allKeywords = allKeywords.concat(keywords[topic]);
+            }
+          });
+
+          const metaTag = `<meta name="keywords" content="${allKeywords.join(', ')}">`;
+          return metaTag;
+        };
+
+        // Example usage:
+        const topics = ['web development', 'web comic agency', 'bot development', 'pwa development'];
+        const seoMetaTag = generateSEOMetaTag(topics);
+        document.write(seoMetaTag);
+    </script>
   <title>Ad web Comic Agency </title>
 
   <!-- 
