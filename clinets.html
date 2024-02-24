@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clients</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: #fff;
+      text-align: center;
+      padding: 20px 0;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .client {
+      background-color: #f4f4f4;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      margin: 10px;
+      width: 200px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Clients</h1>
+  </header>
+  <div class="container" id="client-list">
+    <!-- Clients will be added here dynamically -->
+  </div>
+
+  <script>
+    const clients = [
+      "NovaGlo Corporation",
+      "ZenithTech Solutions",
+      "StellarCraft Industries",
+      "HorizonX Innovations",
+      "QuantumVista Enterprises",
+      "Aurora Dynamics",
+      "NexusWave Ventures",
+      "InfinityWorks Ltd.",
+      "CelestialTech Inc.",
+      "AlphaSynergy Group",
+      "OmegaForge Enterprises",
+      "VertexPrime Solutions",
+      "TitanTech Innovations",
+      "NebulaSoft Systems",
+      "OrionGlobal Corporation",
+      "ApexSphere Technologies",
+      "Solaris Innovations",
+      "GalactiCorp Solutions",
+      "FluxNimbus Enterprises",
+      "EclipseEdge Technologies"
+    ];
+
+    const clientList = document.getElementById("client-list");
+    let index = 0;
+
+    function addNextClient() {
+      const clientDiv = document.createElement("div");
+      clientDiv.classList.add("client");
+      clientDiv.textContent = clients[index];
+      clientList.appendChild(clientDiv);
+      index = (index + 1) % clients.length;
+    }
+
+    // Add clients at a specified interval
+    setInterval(addNextClient, 1000); // Adjust the interval time as needed
+  </script>
+</body>
+</html>
