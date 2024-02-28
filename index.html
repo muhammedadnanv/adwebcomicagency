@@ -635,8 +635,19 @@ s0.parentNode.insertBefore(s1,s0);
   window.open("https://wa.link/il9r4r");
 }
 </script>
-  <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
-<div class="elfsight-app-cd4b9f19-a768-4be4-b81f-12cf5a9a4028" data-elfsight-app-lazy></div>
+ <h1>Visitor Count: <span id="visitor-count">0</span></h1>
+
+    <script>
+        // Get the visitor count from local storage or set it to 0 if not exists
+        let visitorCount = localStorage.getItem('visitorCount') || 0;
+
+        // Update the visitor count on the page
+        document.getElementById('visitor-count').textContent = visitorCount;
+
+        // Increment the visitor count by 1 and save it to local storage
+        visitorCount++;
+        localStorage.setItem('visitorCount', visitorCount);
+    </script>
 </body>
 
 </html>
