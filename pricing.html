@@ -145,10 +145,130 @@ footer {
 #google_translate_element {
     margin-top: 20px;
 }
+     .navbar-wrapper {
+            background-color: #FF6661; /* Extracted color */
+            padding: 10px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .navbar-menu-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .navbar {
+            display: none;
+        }
+
+        .navbar-list {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-item {
+            margin: 0;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: #ffe6e6;
+        }
+
+        @media (min-width: 768px) {
+            .navbar {
+                display: flex;
+            }
+        }
+
+        [data-navbar-toggle-btn] {
+            display: block;
+        }
+
+        [data-navbar] {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            [data-navbar] {
+                display: flex;
+            }
+            [data-navbar-toggle-btn] {
+                display: none;
+            }
+        }
+
+        .navbar-wrapper {
+            position: relative;
+        }
+
+        .navbar-wrapper.active .navbar {
+            display: flex;
+            flex-direction: column;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background-color: #FF6661; /* Extracted color */
+            z-index: 1000;
+        }
+
+        .navbar-wrapper.active .navbar-list {
+            flex-direction: column;
+        }
+
+        .navbar-wrapper.active .nav-link {
+            padding: 10px 20px;
+        }
+    </sty
   
 </style>
 <body>
     <header>
+        <div class="navbar-wrapper">
+        <button class="navbar-menu-btn" data-navbar-toggle-btn>
+            <ion-icon name="menu-outline"></ion-icon>
+        </button>
+        <nav class="navbar" data-navbar>
+            <ul class="navbar-list">
+                <li class="nav-item">
+                    <a href="#home" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#about" class="nav-link">What we do</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#features" class="nav-link">Why us?</a>
+                </li>
+                <li class="nav-item">
+                    <a href="pricing.html" class="nav-link">Pricing</a>
+                </li>
+                <li class="nav-item">
+                    <a href="#contact" class="nav-link">Contact</a>
+                </li>
+            </ul>
+        </nav>
+    </div>
+
+    <script>
+        const toggleBtn = document.querySelector('[data-navbar-toggle-btn]');
+        const navbarWrapper = document.querySelector('.navbar-wrapper');
+
+        toggleBtn.addEventListener('click', () => {
+            navbarWrapper.classList.toggle('active');
+        });
+    </script>
         <div class="container">
             <h1 class="h1">Pricing</h1>
         </div>
