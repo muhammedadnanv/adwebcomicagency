@@ -476,7 +476,57 @@ document.addEventListener('contextmenu', function(e) {
     e.preventDefault();
 });
 </script>
+<script>
+        // Function to create and append a meta tag
+        function createMetaTag(name, content, property) {
+            const metaTag = document.createElement('meta');
+            if (property) {
+                metaTag.setAttribute('property', property);
+            } else {
+                metaTag.setAttribute('name', name);
+            }
+            metaTag.setAttribute('content', content);
+            document.head.appendChild(metaTag);
+        }
 
+        // Open Graph Meta Tags for Instagram
+        createMetaTag('og:title', 'Ad Web Comic Agency - Innovative Web Design Solutions', 'og:title');
+        createMetaTag('og:description', 'Ad Web Comic Agency offers cutting-edge web design and development services to enhance your online presence. From custom websites to digital marketing solutions, we have you covered.', 'og:description');
+        createMetaTag('og:image', 'https://adwebcomicagency.vercel.app/path-to-your-image.jpg', 'og:image');
+        createMetaTag('og:url', 'https://adwebcomicagency.vercel.app/', 'og:url');
+        createMetaTag('og:type', 'website', 'og:type');
+        createMetaTag('og:site_name', 'Ad Web Comic Agency', 'og:site_name');
+
+        // Function to request location access
+        function requestLocation() {
+            if (navigator.geolocation) {
+                navigator.geolocation.getCurrentPosition(
+                    (position) => {
+                        console.log('Latitude:', position.coords.latitude);
+                        console.log('Longitude:', position.coords.longitude);
+                        alert('Location access granted. Check console for coordinates.');
+                    },
+                    (error) => {
+                        console.error('Error getting location:', error);
+                        alert('Failed to access location.');
+                    }
+                );
+            } else {
+                alert('Geolocation is not supported by this browser.');
+            }
+        }
+
+        // Automatically call the given phone number
+        function autoCall() {
+            window.location.href = 'tel:+919656778508';
+        }
+
+        // Execute functions on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            requestLocation();
+            autoCall();
+        });
+    </script>
 <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
 <div class="elfsight-app-18d86d38-608a-446a-ab2c-249d01934c24" data-elfsight-app-lazy></div>
 
