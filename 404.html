@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html style="height:100%">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+  <title>404 Not Found | Ad Web Comic Agency</title>
+  <style>
+    @media (prefers-color-scheme:dark) {
+      body {
+        background-color: #000 !important;
+        color: #fff;
+      }
+    }
+    body {
+      color: #333;
+      margin: 0;
+      font: normal 14px/20px Arial, Helvetica, sans-serif;
+      height: 100%;
+      background-color: #f9f9f9;
+      cursor: crosshair;
+    }
+    .container {
+      height: auto;
+      min-height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      text-align: center;
+    }
+    h1 {
+      margin: 0;
+      font-size: 150px;
+      line-height: 150px;
+      font-weight: bold;
+      color: #ff6f61; /* Primary Color */
+    }
+    h2 {
+      margin-top: 20px;
+      font-size: 30px;
+      color: #6b5b95; /* Secondary Color */
+    }
+    p {
+      margin-top: 10px;
+    }
+    .footer {
+      color: #f0f0f0;
+      font-size: 12px;
+      margin: auto;
+      padding: 0px 30px;
+      position: relative;
+      clear: both;
+      height: 100px;
+      margin-top: -101px;
+      background-color: #474747;
+      border-top: 1px solid rgba(0,0,0,0.15);
+      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+      text-align: center;
+    }
+    @keyframes cursor-pulse {
+      0% {
+        background-color: #ff6f61;
+      }
+      50% {
+        background-color: #6b5b95;
+      }
+      100% {
+        background-color: #ff6f61;
+      }
+    }
+    body::after {
+      content: '';
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 10px;
+      height: 10px;
+      background-color: #ff6f61; /* Primary Color */
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      animation: cursor-pulse 1s infinite;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>404</h1>
+    <h2>Not Found</h2>
+    <p>The resource requested could not be found on this server!</p>
+  </div>
+  <div class="footer">
+    <p>Proudly powered by Ad Web Comic Agency</p>
+  </div>
+</body>
+</html>
