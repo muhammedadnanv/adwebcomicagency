@@ -88,7 +88,26 @@
 <title>Custom Website Development by Ad Web Comic Agency | PWA, SEO, and More</title>
 <title>Responsive Web Design Services | Ad Web Comic Agency</title>
     <title>Ad Web Comic Agency - Top Web Design Company in India - Creative and Custom Web Development</title>
+ <script>
+        // Function to check and handle offline status
+        function handleOffline() {
+            if (!navigator.onLine) {
+                window.location.href = '404.html'; // Redirect to 404 page if offline
+            }
+        }
 
+        // Event listener for when the user goes offline or online
+        window.addEventListener('load', () => {
+            handleOffline(); // Initial check on page load
+
+            // Listen for changes in online/offline status
+            window.addEventListener('offline', handleOffline);
+            window.addEventListener('online', () => {
+                // Optionally, you can also redirect back to the original page or show a message when back online
+                console.log('Back online');
+            });
+        });
+    </script>
     <link rel="shortcut icon" href="https://i.postimg.cc/7YjKDz6D/img.jpg"
         type="image/png">
     <link rel="stylesheet" href="css/style.css">
