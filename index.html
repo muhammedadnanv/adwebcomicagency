@@ -12,7 +12,61 @@
 <meta name="keywords" content="Best web development company in India, Top web design companies in India, Best website design company in India, Creative website development company in India, Creative agency in India, WordPress experts in India, Ad Web Comic Agency, Professional web design services, Custom web development, E-commerce solutions, SEO web design">
 <meta name="description" content="Ad Web Comic Agency is a leading web development company in India, offering top-notch website design, custom development, and e-commerce solutions. Specializing in creative and responsive web design to enhance your online presence and business growth.">
 <meta name="author" content="Ad Web Comic Agency">
+<script>
+        function updateStyles() {
+            const width = window.innerWidth;
+            let css = '';
 
+            if (width <= 480) {
+                css = `
+                    body {
+                        font-size: 12px;
+                    }
+                    header h1, main h2 {
+                        font-size: 16px;
+                    }
+                    footer p {
+                        font-size: 12px;
+                    }
+                `;
+            } else if (width <= 768) {
+                css = `
+                    body {
+                        font-size: 14px;
+                    }
+                    header, footer {
+                        padding: 0.5rem;
+                    }
+                `;
+            } else {
+                css = `
+                    body {
+                        font-size: 16px;
+                    }
+                    header, footer {
+                        padding: 1rem;
+                    }
+                `;
+            }
+
+            // Apply the styles
+            const styleSheet = document.createElement('style');
+            styleSheet.type = 'text/css';
+            styleSheet.id = 'responsive-styles';
+            styleSheet.innerText = css;
+            const existingStyleSheet = document.getElementById('responsive-styles');
+            if (existingStyleSheet) {
+                document.head.removeChild(existingStyleSheet);
+            }
+            document.head.appendChild(styleSheet);
+        }
+
+        // Initial style update
+        updateStyles();
+
+        // Update styles on resize
+        window.addEventListener('resize', updateStyles);
+    </script>
 
 <meta property="og:type" content="website" />
 <meta property="og:title" content="Ad Web Comic Agency - Premier Website Development in Kozhikode" />
