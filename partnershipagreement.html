@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Partnership Agreement Form</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -70,11 +71,23 @@
         .team-details h3 {
             margin-top: 0;
         }
+
+        /* Custom styles */
+        .highlighted-text {
+            font-size: 150px;
+            line-height: 150px;
+            font-weight: bold;
+            color: #ff6f61;
+            background-color: white;
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Partnership Agreement</h1>
+        <h1 class="highlighted-text">Partnership Agreement</h1>
         <form id="agreementForm" action="mailto:example@example.com" method="post" enctype="text/plain">
             <section>
                 <h2>Parties Involved</h2>
@@ -93,8 +106,8 @@
                 <label for="yourPhoneNumber">Your Phone Number:</label>
                 <input type="tel" id="yourPhoneNumber" name="yourPhoneNumber" required>
                 
-                <label for="adWebComicAgencyName">Ad Web Comic Agency Name:</label>
-                <input type="text" id="adWebComicAgencyName" name="adWebComicAgencyName" value="Ad Web Comic Agency Ltd" readonly>
+                <label for="adWebComicAgencyBranch">Ad Web Comic Agency Branch:</label>
+                <input type="text" id="adWebComicAgencyBranch" name="adWebComicAgencyBranch" value="Ad Web Comic Agency Ltd" readonly>
                 
                 <label for="adWebComicAgencyAddress">Ad Web Comic Agency Address:</label>
                 <input type="text" id="adWebComicAgencyAddress" name="adWebComicAgencyAddress" value="behind kmr steels, vazakkam vettil, ulleryi19, Kerala 673315" readonly>
@@ -153,7 +166,7 @@
                 </div>
             </section>
           <div class="team-details">
-            <img src="https://i.ibb.co/pz6fB3m/Whats-App-Image-2024-08-12-at-21-10-02.jpg" alt="Whats-App-Image-2024-08-12-at-21-10-02" border="0">
+            <img src="https://i.ibb.co/pz6fB3m/Whats-App-Image-2024-08-12-at-21-10-02.jpg" alt="Whats-App-Image-2024-08-12-at-21-10-02" border="0" class="img-fluid">
           </div>
             
             <section>
@@ -161,5 +174,9 @@
             </section>
         </form>
     </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
