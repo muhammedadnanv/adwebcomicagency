@@ -1002,38 +1002,56 @@ function googleTranslateElementInit() {
             -->
 
     <section class="contact" id="contact">
-                <div class="container">
-                    <div class="contact-content">
-                        <h2 class="h2 contact-title">Scale your brand with us.</h2>
-                        <figure class="contact-banner">
-                            <img src="images/contact.png" alt="contact banner">
-                        </figure>
-                    </div>
-                    <form id="registrationForm" action="mailto:adnanmuhammad4393@gmail.com" method="post" enctype="text/plain">
-                        <div class="input-wrapper">
-                            <label for="name" class="input-label">Name *</label>
-                            <input type="text" name="name" id="name" required placeholder="Type Name"
-                                class="input-field">
-                        </div>
-                        <div class="input-wrapper">
-                            <label for="phone" class="input-label">Phone</label>
-                            <input type="tel" name="phone" id="phone" placeholder="Type Phone Number"
-                                class="input-field">
-                        </div>
-                        <div class="input-wrapper">
-                            <label for="email" class="input-label">Email Address *</label>
-                            <input type="email" name="email" id="email" required placeholder="Type Email Address"
-                                class="input-field">
-                        </div>
-                        <div class="input-wrapper">
-                            <label for="message" class="input-label">How can we help? *</label>
-                            <textarea name="message" id="message" placeholder="Type Description" required
-                                class="input-field"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
-                </div>
-            </section>
+    <div class="container">
+        <div class="contact-content">
+            <h2 class="h2 contact-title">Scale your brand with us.</h2>
+            <figure class="contact-banner">
+                <img src="images/contact.png" alt="contact banner">
+            </figure>
+        </div>
+        <form id="whatsappForm">
+            <div class="input-wrapper">
+                <label for="name" class="input-label">Name *</label>
+                <input type="text" name="name" id="name" required placeholder="Type Name" class="input-field">
+            </div>
+            <div class="input-wrapper">
+                <label for="phone" class="input-label">Phone</label>
+                <input type="tel" name="phone" id="phone" placeholder="Type Phone Number" class="input-field">
+            </div>
+            <div class="input-wrapper">
+                <label for="email" class="input-label">Email Address *</label>
+                <input type="email" name="email" id="email" required placeholder="Type Email Address" class="input-field">
+            </div>
+            <div class="input-wrapper">
+                <label for="message" class="input-label">How can we help? *</label>
+                <textarea name="message" id="message" placeholder="Type Description" required class="input-field"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+    </div>
+</section>
+
+<script>
+    document.getElementById('whatsappForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Collect form data
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const phone = document.getElementById('phone').value;
+        const message = document.getElementById('message').value;
+
+        // Construct the WhatsApp message
+        const whatsappMessage = `Name: ${name}\nEmail: ${email}\nPhone: ${phone}\nMessage: ${message}`;
+
+        // WhatsApp API URL with pre-filled message
+        const whatsappURL = `https://wa.me/9196566778508?text=${encodeURIComponent(whatsappMessage)}`;
+
+        // Redirect to WhatsApp
+        window.location.href = whatsappURL;
+    });
+</script>
+
 
         </article>
 
