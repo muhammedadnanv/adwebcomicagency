@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:locale" content="en_US" />
+     <meta name="keywords" content="">
     <meta name="description" content="Top-rated website development services in Kozhikode. Offering professional web design, custom development, e-commerce solutions, and SEO-friendly websites tailored to your needs. Contact us for affordable and responsive website solutions in Kozhikode.">
 <meta name="keywords" content="website development Kozhikode, web design Kozhikode, professional web development Kozhikode, custom website design Kozhikode, affordable web development Kozhikode, e-commerce website development Kozhikode, SEO web design Kozhikode, responsive web design Kozhikode, mobile-friendly web design Kozhikode, CMS website development Kozhikode, local web development Kozhikode, website redesign Kozhikode, small business web development Kozhikode, web development agency Kozhikode, Kozhikode website development company, front-end development Kozhikode, back-end development Kozhikode, website maintenance Kozhikode, web support Kozhikode, website hosting Kozhikode, domain services Kozhikode">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=1">
@@ -21,7 +22,65 @@
 <meta name="keywords" content="Ad Web Comic Agency, website development, logo design, YouTube management, video creation, WhatsApp bot development, referral marketing, resume and portfolio development, AI technology solutions, web design, digital marketing, SEO optimization, graphic design, UI/UX design, brand identity, mobile app development, e-commerce solutions, content creation, social media management, custom web solutions, interactive design, user experience, web hosting, domain registration, business web solutions, website maintenance, creative services, technology consulting, web development Kerala, innovative web solutions, professional web design, responsive web design, digital strategy, online branding, web application development, tech consulting, digital transformation, online presence, marketing strategy, technology integration, user interface design, web design agency, Kerala tech services, cutting-edge web solutions, advanced website development, creative digital solutions, technology innovation, brand development, web project management, custom web applications, web analytics, digital project management, web development services, online marketing, professional branding, tech development, digital solutions, user-centered design, website optimization, web development experts, bespoke web design, digital creativity, online strategy, technology-driven design, web presence management, interactive media, comprehensive web services, Kerala web solutions, strategic web design, web innovation, custom digital solutions, technology-driven marketing, user experience design, online content strategy, professional web services, web-based solutions, creative technology services, advanced digital solutions, tech-driven design, innovative digital strategy">
 <meta name="keywords" content="Ad Web Comic Agency, website development, logo design, YouTube management, video creation, WhatsApp bot development, referral marketing, resume development, portfolio development, AI technology solutions, web design, digital marketing, SEO optimization, graphic design, UI/UX design, brand identity, mobile app development, e-commerce solutions, content creation, social media management, custom web solutions, interactive design, user experience, web hosting, domain registration, business web solutions, website maintenance, creative services, technology consulting, web development Kerala, innovative web solutions, professional web design, responsive web design, digital strategy, online branding, web application development, tech consulting, digital transformation, online presence, marketing strategy, technology integration, user interface design, web design agency, Kerala tech services, cutting-edge web solutions, advanced website development, creative digital solutions, technology innovation, brand development, web project management, custom web applications, web analytics, digital project management, web development services, online marketing, professional branding, tech development, digital solutions, user-centered design, website optimization, web development experts, bespoke web design, digital creativity, online strategy, technology-driven design, web presence management, interactive media, comprehensive web services, Kerala web solutions, strategic web design, web innovation, custom digital solutions, technology-driven marketing, user experience design, online content strategy, professional web services, web-based solutions, creative technology services, advanced digital solutions, tech-driven design, innovative digital strategy, UI design, UX design, digital branding, technology solutions, website solutions, content marketing, creative web design, web tech services, internet marketing, social media strategy, mobile app design, user interface, web optimization, brand marketing, interactive web design, web services Kerala, video marketing, online content, tech design, business website development, web redesign, SEO services, online engagement, digital advertising, tech services, web design Kerala, marketing solutions, custom branding, design agency, digital agency, online design services, responsive design, interactive technology, brand solutions, tech integration, UI/UX services, digital innovation, professional web development, creative tech solutions, online business solutions, web development trends, technology trends, website design Kerala, web content strategy, digital media, tech and design, web solutions agency, brand identity design, advanced web services, creative solutions, digital presence, online tech services, bespoke web solutions, interactive branding, digital user experience, web application services, tech branding, creative technology, business branding, online marketing solutions, web project services, UI/UX strategy, digital content, tech development services, professional tech design, web-based marketing, digital experience, technology consulting services, custom design solutions, web presence strategy, creative web solutions, digital transformation strategy, online design trends, tech and web services, interactive content, branding services, web development expertise, online tech solutions, digital design agency, UI/UX experts, web innovation services, advanced digital marketing, business tech solutions, web design expertise, creative tech design, digital engagement strategy, tech and digital services, online branding strategy, website development Kerala, digital marketing services, UI/UX solutions, custom digital marketing, interactive web solutions, web strategy, branding and design, digital tech solutions, web-based design, professional digital solutions, creative content strategy, tech-driven web design, online service design, web design trends, comprehensive web development, tech innovation services, online business strategy, digital branding solutions, web presence services, tech marketing strategy, custom web design solutions, interactive digital solutions, business web services, digital content creation, web tech innovation">
 <meta name="description" content="Ad Web Comic Agency is a premier website development and digital marketing firm based in Kerala, India. Specializing in custom web design, logo creation, YouTube channel management, and video production, we deliver cutting-edge solutions tailored to elevate your online presence. Our expertise extends to WhatsApp bot development, referral marketing, and advanced AI technology solutions. With a focus on user experience and interactive design, our team of skilled professionals offers comprehensive services including web hosting, domain registration, e-commerce solutions, and SEO optimization. We are dedicated to providing innovative, creative, and technology-driven solutions to meet the diverse needs of our clients. Whether you're looking to enhance your brand identity or launch a new digital project, Ad Web Comic Agency combines industry-leading practices with a strategic approach to deliver exceptional results and drive business growth." />
-<script>
+   <script>
+        // Sample data for service offerings and user interactions
+        const services = [
+            'Website Development',
+            'Logo Design',
+            'YouTube Management',
+            'Video Creation',
+            'WhatsApp Bot Development'
+        ];
+
+        const userInteractions = [
+            ['Website Development', 'Logo Design'],
+            ['Logo Design', 'Video Creation'],
+            ['YouTube Management', 'Video Creation'],
+            ['Website Development', 'YouTube Management']
+        ];
+
+        // Function to generate pre-paid keywords based on services and interactions
+        function generateKeywords() {
+            const keywords = new Set();
+
+            services.forEach(service => {
+                keywords.add(service.toLowerCase().replace(/\s+/g, '-'));
+            });
+
+            userInteractions.forEach(interaction => {
+                interaction.forEach(service => {
+                    keywords.add(service.toLowerCase().replace(/\s+/g, '-'));
+                });
+            });
+
+            return Array.from(keywords).join(', ');
+        }
+
+        // Function to update the meta keywords tag and display keywords
+        function updateMetaKeywords() {
+            const keywords = generateKeywords();
+            
+            // Update meta keywords content
+            const metaKeywords = document.querySelector('meta[name="keywords"]');
+            if (metaKeywords) {
+                metaKeywords.setAttribute('content', keywords);
+            }
+
+            // Display keywords in the page
+            const container = document.getElementById('keywords-list');
+            container.innerHTML = ''; // Clear existing content
+
+            keywords.split(', ').forEach(keyword => {
+                const listItem = document.createElement('li');
+                listItem.textContent = keyword;
+                container.appendChild(listItem);
+            });
+        }
+
+        // Call the function to update meta keywords and display keywords on page load
+        updateMetaKeywords();
+    </script>
+    <script>
     // searches.js
 
 const searchQueries = [
