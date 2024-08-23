@@ -4,20 +4,39 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <title>404 Not Found | Ad Web Comic Agency</title>
   <style>
-    @media (prefers-color-scheme:dark) {
-      body {
-        background-color: #000 !important;
-        color: #fff;
+    :root {
+      --background-color: #ffffff;
+      --default-color: #444444;
+      --heading-color: #012970;
+      --accent-color: #4154f1;
+      --surface-color: #ffffff;
+      --contrast-color: #ffffff;
+      --cursor-color-1: #4154f1; /* Blue color */
+      --cursor-color-2: #ffffff; /* White color */
+    }
+    
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --background-color: #000000;
+        --default-color: #ffffff;
+        --heading-color: #ff6f61;
+        --accent-color: #6b5b95;
+        --surface-color: #000000;
+        --contrast-color: #ffffff;
+        --cursor-color-1: #6b5b95; /* Darker blue color for dark mode */
+        --cursor-color-2: #ffffff; /* White color */
       }
     }
+    
     body {
-      color: #333;
+      color: var(--default-color);
       margin: 0;
       font: normal 14px/20px Arial, Helvetica, sans-serif;
       height: 100%;
-      background-color: #f9f9f9;
+      background-color: var(--background-color);
       cursor: crosshair;
     }
+    
     .container {
       height: auto;
       min-height: 100%;
@@ -27,23 +46,27 @@
       flex-direction: column;
       text-align: center;
     }
+    
     h1 {
       margin: 0;
       font-size: 150px;
       line-height: 150px;
       font-weight: bold;
-      color: #ff6f61; /* Primary Color */
+      color: var(--heading-color);
     }
+    
     h2 {
       margin-top: 20px;
       font-size: 30px;
-      color: #6b5b95; /* Secondary Color */
+      color: var(--accent-color);
     }
+    
     p {
       margin-top: 10px;
     }
+    
     .footer {
-      color: #f0f0f0;
+      color: var(--contrast-color);
       font-size: 12px;
       margin: auto;
       padding: 0px 30px;
@@ -51,22 +74,24 @@
       clear: both;
       height: 100px;
       margin-top: -101px;
-      background-color: #474747;
+      background-color: var(--surface-color);
       border-top: 1px solid rgba(0,0,0,0.15);
       box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset;
       text-align: center;
     }
+    
     @keyframes cursor-pulse {
       0% {
-        background-color: #ff6f61;
+        background-color: var(--cursor-color-1);
       }
       50% {
-        background-color: #6b5b95;
+        background-color: var(--cursor-color-2);
       }
       100% {
-        background-color: #ff6f61;
+        background-color: var(--cursor-color-1);
       }
     }
+    
     body::after {
       content: '';
       position: fixed;
@@ -74,7 +99,7 @@
       left: 50%;
       width: 10px;
       height: 10px;
-      background-color: #ff6f61; /* Primary Color */
+      background-color: var(--cursor-color-1);
       border-radius: 50%;
       transform: translate(-50%, -50%);
       pointer-events: none;
@@ -91,5 +116,6 @@
   <div class="footer">
     <p>Proudly powered by Ad Web Comic Agency</p>
   </div>
+
 </body>
 </html>
