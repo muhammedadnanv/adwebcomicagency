@@ -2293,6 +2293,115 @@
   <!-- Main JS File -->
   <script src="assets/js/main.js"></script>
 
-</body>
 
+<!-- Include Bootstrap CSS -->
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+<!-- Include Font Awesome Icons -->
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+<style>
+    .whatsapp-widget {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        z-index: 1000;
+    }
+
+    .whatsapp-widget a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 60px;
+        height: 60px;
+        background-color: #25d366;
+        border-radius: 50%;
+        box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+        transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+    }
+
+    .whatsapp-widget a i {
+        color: #fff;
+        font-size: 30px;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .whatsapp-widget a:hover {
+        transform: scale(1.2);
+        box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+    }
+
+    .whatsapp-widget a:hover i {
+        transform: rotate(20deg);
+    }
+
+    @media (max-width: 768px) {
+        .whatsapp-widget {
+            bottom: 15px;
+            right: 15px;
+        }
+
+        .whatsapp-widget a {
+            width: 50px;
+            height: 50px;
+        }
+
+        .whatsapp-widget a i {
+            font-size: 25px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .whatsapp-widget {
+            bottom: 10px;
+            right: 10px;
+        }
+
+        .whatsapp-widget a {
+            width: 45px;
+            height: 45px;
+        }
+
+        .whatsapp-widget a i {
+            font-size: 22px;
+        }
+    }
+
+    /* Optional animation for pulse effect */
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+        50% {
+            transform: scale(1.1);
+        }
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    .pulse-animation {
+        animation: pulse 1s infinite;
+    }
+</style>
+
+<!-- WhatsApp Widget -->
+<div class="whatsapp-widget">
+    <a href="https://wa.me/919656778508" target="_blank" id="whatsapp-link">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+</div>
+
+<script>
+    // Add pulse animation on hover
+    document.getElementById('whatsapp-link').addEventListener('mouseover', function() {
+        this.querySelector('i').classList.add('pulse-animation');
+    });
+
+    // Remove pulse animation when the animation ends
+    document.getElementById('whatsapp-link').addEventListener('animationend', function() {
+        this.querySelector('i').classList.remove('pulse-animation');
+    });
+</script>
+</body>
 </html>
