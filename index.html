@@ -1754,39 +1754,107 @@ f=false,w=window,d=document,v=d.querySelector('#vwoCode'),cK='_vwo_'+account_id+
       </div><!-- End Pricing Item -->
 <style>
   .pricing-item {
-    background-color: #fff; /* Card background color */
-    border: 1px solid #ddd; /* Card border */
-    border-radius: 8px; /* Rounded corners */
-    padding: 20px; /* Inner spacing */
-    margin-bottom: 20px; /* Space between cards */
-    text-align: center; /* Center text */
-    width: 300px; /* Fixed width for the card */
-    height: 400px; /* Fixed height for the card */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    background-color: var(--surface-color);
+    box-shadow: 0px 0 30px rgba(0, 0, 0, 0.1);
+    padding: 40px 20px;
+    text-align: center;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s;
+    height: 100%;
   }
 
-  .price {
-    font-size: 24px; /* Font size for price */
-    font-weight: bold; /* Bold price */
+  @media (min-width: 1200px) {
+    .pricing-item:hover {
+      transform: scale(1.05);
+      box-shadow: 0px 0 40px rgba(0, 0, 0, 0.15);
+    }
   }
 
-  .icon {
-    font-size: 40px; /* Size for the icon */
-    margin: 15px 0; /* Space around the icon */
+  .pricing-item h3 {
+    font-weight: 700;
+    font-size: 18px;
+    margin-bottom: 15px;
   }
 
-  ul {
-    list-style: none; /* Remove default list styling */
-    padding: 0; /* Remove padding */
+  .pricing-item .price {
+    font-size: 36px;
+    color: var(--heading-color);
+    font-weight: 600;
+    font-family: var(--heading-font);
   }
 
-  ul li {
-    margin: 10px 0; /* Space between list items */
+  .pricing-item .price sup {
+    font-size: 20px;
+    top: -15px;
+    left: -3px;
+  }
+
+  .pricing-item .price span {
+    color: color-mix(in srgb, var(--default-color), transparent 50%);
+    font-size: 16px;
+    font-weight: 300;
+  }
+
+  .pricing-item .icon {
+    padding: 20px 0;
+  }
+
+  .pricing-item .icon i {
+    font-size: 48px;
+  }
+
+  .pricing-item ul {
+    padding: 0;
+    list-style: none;
+    color: var(--default-color);
+    text-align: center;
+    line-height: 26px;
+    font-size: 16px;
+    margin-bottom: 25px;
+  }
+
+  .pricing-item ul li {
+    padding-bottom: 10px;
+  }
+
+  .pricing-item ul .na {
+    color: color-mix(in srgb, var(--default-color), transparent 70%);
+    text-decoration: line-through;
+  }
+
+  .pricing-item .btn-buy {
+    display: inline-block;
+    padding: 8px 40px 10px 40px;
+    border-radius: 50px;
+    color: var(--accent-color);
+    font-size: 16px;
+    font-weight: 600;
+    transition: 0.3s;
+    border: 1px solid var(--accent-color);
+  }
+
+  .pricing-item .btn-buy:hover {
+    background: var(--accent-color);
+    color: var(--contrast-color);
+  }
+
+  .pricing-item .featured {
+    width: 200px;
+    position: absolute;
+    top: 18px;
+    right: -68px;
+    transform: rotate(45deg);
+    z-index: 1;
+    font-size: 14px;
+    padding: 1px 0 3px 0;
+    background: var(--accent-color);
+    color: var(--contrast-color);
   }
 </style>
 
 <div class="row">
-
   <!-- Basic QR Business Cards -->
   <div class="col-lg-4 col-md-6 d-flex justify-content-center" data-aos="zoom-in" data-aos-delay="200">
     <div class="pricing-item">
@@ -1846,8 +1914,8 @@ f=false,w=window,d=document,v=d.querySelector('#vwoCode'),cK='_vwo_'+account_id+
       </ul>
     </div>
   </div><!-- End Pricing Item -->
-
 </div><!-- End QR Business Card Pricing Row -->
+
 
     </div>
   </div>
