@@ -75,7 +75,7 @@ contactForm.addEventListener('submit', (e) => {
     }
     
     // Simulate form submission
-    alert('Thank you for your message! We will get back to you within 24 hours.');
+    alert('Contact on +91 96567 78508 or Send an email on adwebcomicagency@gmail.com.');
     contactForm.reset();
 });
 
