@@ -3,38 +3,52 @@
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
   <title>404 Not Found | Ad Web Comic Agency</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --background-color: #ffffff;
-      --default-color: #444444;
-      --heading-color: #012970;
-      --accent-color: #4154f1;
-      --surface-color: #ffffff;
-      --contrast-color: #ffffff;
-      --cursor-color-1: #4154f1; /* Blue color */
-      --cursor-color-2: #ffffff; /* White color */
+      --dark-color: #101820;
+      --yellow-color: #FEE715;
+      --dark-accent: #1a1f2e;
+      --yellow-glow: 0 0 10px #FEE715, 0 0 20px #FEE715, 0 0 30px #FEE715;
+      --yellow-glow-soft: 0 0 5px rgba(254, 231, 21, 0.5);
     }
     
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --background-color: #000000;
-        --default-color: #ffffff;
-        --heading-color: #ff6f61;
-        --accent-color: #6b5b95;
-        --surface-color: #000000;
-        --contrast-color: #ffffff;
-        --cursor-color-1: #6b5b95; /* Darker blue color for dark mode */
-        --cursor-color-2: #ffffff; /* White color */
-      }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
     
     body {
-      color: var(--default-color);
+      color: #ffffff;
       margin: 0;
-      font: normal 14px/20px Arial, Helvetica, sans-serif;
+      font-family: 'Rajdhani', sans-serif;
       height: 100%;
-      background-color: var(--background-color);
-      cursor: crosshair;
+      background-color: var(--dark-color);
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(254, 231, 21, 0.03) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(254, 231, 21, 0.03) 0%, transparent 20%),
+        linear-gradient(135deg, rgba(26, 31, 46, 0.8) 0%, var(--dark-color) 100%);
+      background-attachment: fixed;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        to bottom,
+        transparent 0px,
+        rgba(254, 231, 21, 0.03) 1px,
+        transparent 2px
+      );
+      pointer-events: none;
+      z-index: 1;
     }
     
     .container {
@@ -45,77 +59,319 @@
       align-items: center;
       flex-direction: column;
       text-align: center;
+      padding: 20px;
+      position: relative;
+      z-index: 2;
     }
     
-    h1 {
-      margin: 0;
-      font-size: 150px;
-      line-height: 150px;
-      font-weight: bold;
-      color: var(--heading-color);
+    .error-code {
+      position: relative;
+      font-family: 'Orbitron', sans-serif;
+      font-size: 180px;
+      line-height: 1;
+      font-weight: 900;
+      color: var(--dark-color);
+      text-shadow: -1px -1px 0 var(--yellow-color), 1px -1px 0 var(--yellow-color), -1px 1px 0 var(--yellow-color), 1px 1px 0 var(--yellow-color);
+      letter-spacing: -5px;
+      margin-bottom: 20px;
+    }
+    
+    .error-code::before {
+      content: '404';
+      position: absolute;
+      left: 2px;
+      top: 2px;
+      color: var(--yellow-color);
+      filter: blur(4px);
+      opacity: 0.8;
+      animation: glitch 3s infinite alternate;
+    }
+    
+    .error-code::after {
+      content: '404';
+      position: absolute;
+      left: -2px;
+      top: -2px;
+      color: var(--dark-color);
+      text-shadow: -1px -1px 0 var(--yellow-color), 1px -1px 0 var(--yellow-color), -1px 1px 0 var(--yellow-color), 1px 1px 0 var(--yellow-color);
+      opacity: 0.8;
+      animation: glitch 2s infinite alternate-reverse;
+    }
+    
+    @keyframes glitch {
+      0%, 100% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(-2px, -2px); }
+      60% { transform: translate(2px, 2px); }
+      80% { transform: translate(2px, -2px); }
     }
     
     h2 {
-      margin-top: 20px;
-      font-size: 30px;
-      color: var(--accent-color);
+      font-family: 'Orbitron', sans-serif;
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--yellow-color);
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      margin-bottom: 20px;
+      position: relative;
+      display: inline-block;
+    }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100px;
+      height: 3px;
+      background: var(--yellow-color);
+      box-shadow: var(--yellow-glow-soft);
     }
     
     p {
-      margin-top: 10px;
+      font-size: 18px;
+      font-weight: 500;
+      color: #ffffff;
+      max-width: 600px;
+      margin: 20px auto;
+      line-height: 1.6;
+    }
+    
+    .back-button {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 30px;
+      background-color: transparent;
+      color: var(--yellow-color);
+      border: 2px solid var(--yellow-color);
+      border-radius: 30px;
+      font-family: 'Rajdhani', sans-serif;
+      font-size: 16px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+      z-index: 1;
+    }
+    
+    .back-button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: var(--yellow-color);
+      transition: all 0.3s ease;
+      z-index: -1;
+    }
+    
+    .back-button:hover {
+      color: var(--dark-color);
+    }
+    
+    .back-button:hover::before {
+      left: 0;
     }
     
     .footer {
-      color: var(--contrast-color);
-      font-size: 12px;
-      margin: auto;
-      padding: 0px 30px;
-      position: relative;
-      clear: both;
-      height: 100px;
-      margin-top: -101px;
-      background-color: var(--surface-color);
-      border-top: 1px solid rgba(0,0,0,0.15);
-      box-shadow: 0 1px 0 rgba(255, 255, 255, 0.3) inset;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      padding: 20px;
+      background-color: rgba(16, 24, 32, 0.8);
+      backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(254, 231, 21, 0.3);
       text-align: center;
+      z-index: 10;
     }
     
-    @keyframes cursor-pulse {
-      0% {
-        background-color: var(--cursor-color-1);
-      }
-      50% {
-        background-color: var(--cursor-color-2);
-      }
-      100% {
-        background-color: var(--cursor-color-1);
-      }
+    .footer p {
+      font-family: 'Orbitron', sans-serif;
+      font-size: 14px;
+      color: var(--yellow-color);
+      margin: 0;
     }
     
-    body::after {
-      content: '';
-      position: fixed;
-      top: 50%;
+    /* Floating elements */
+    .floating-elements {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 0;
+    }
+    
+    .element {
+      position: absolute;
+      border-radius: 50%;
+      opacity: 0.5;
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    .element-1 {
+      width: 80px;
+      height: 80px;
+      background: rgba(254, 231, 21, 0.1);
+      top: 20%;
+      left: 20%;
+      animation-delay: 0s;
+    }
+    
+    .element-2 {
+      width: 60px;
+      height: 60px;
+      background: rgba(254, 231, 21, 0.1);
+      top: 60%;
+      right: 30%;
+      animation-delay: 2s;
+    }
+    
+    .element-3 {
+      width: 100px;
+      height: 100px;
+      background: rgba(254, 231, 21, 0.1);
+      bottom: 20%;
       left: 50%;
-      width: 10px;
-      height: 10px;
-      background-color: var(--cursor-color-1);
+      animation-delay: 4s;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    /* Cursor effect */
+    .cursor {
+      position: fixed;
+      width: 20px;
+      height: 20px;
+      border: 2px solid var(--yellow-color);
       border-radius: 50%;
       transform: translate(-50%, -50%);
       pointer-events: none;
-      animation: cursor-pulse 1s infinite;
+      transition: width 0.3s, height 0.3s, border-color 0.3s;
+      z-index: 9999;
+    }
+    
+    .cursor-dot {
+      position: fixed;
+      width: 6px;
+      height: 6px;
+      background-color: var(--yellow-color);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      pointer-events: none;
+      z-index: 9999;
+    }
+    
+    /* Responsive styles */
+    @media (max-width: 768px) {
+      .error-code {
+        font-size: 120px;
+      }
+      
+      h2 {
+        font-size: 28px;
+      }
+      
+      p {
+        font-size: 16px;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .error-code {
+        font-size: 80px;
+      }
+      
+      h2 {
+        font-size: 22px;
+      }
+      
+      .back-button {
+        padding: 10px 20px;
+        font-size: 14px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="container">
-    <h1>404</h1>
-    <h2>Not Found</h2>
-    <p>The resource requested could not be found on this server!</p>
+  <div class="floating-elements">
+    <div class="element element-1"></div>
+    <div class="element element-2"></div>
+    <div class="element element-3"></div>
   </div>
+  
+  <div class="container">
+    <div class="error-code">404</div>
+    <h2>Page Not Found</h2>
+    <p>The resource you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+    <a href="/" class="back-button">Return Home</a>
+  </div>
+  
   <div class="footer">
     <p>Proudly powered by Ad Web Comic Agency</p>
   </div>
 
+  <script>
+    // Custom cursor effect
+    const cursor = document.createElement('div');
+    cursor.classList.add('cursor');
+    document.body.appendChild(cursor);
+    
+    const cursorDot = document.createElement('div');
+    cursorDot.classList.add('cursor-dot');
+    document.body.appendChild(cursorDot);
+    
+    document.addEventListener('mousemove', function(e) {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+      
+      cursorDot.style.left = e.clientX + 'px';
+      cursorDot.style.top = e.clientY + 'px';
+    });
+    
+    document.addEventListener('mousedown', function() {
+      cursor.style.width = '16px';
+      cursor.style.height = '16px';
+      cursor.style.borderColor = '#ffffff';
+    });
+    
+    document.addEventListener('mouseup', function() {
+      cursor.style.width = '20px';
+      cursor.style.height = '20px';
+      cursor.style.borderColor = '#FEE715';
+    });
+    
+    // Disable default cursor
+    document.body.style.cursor = 'none';
+    
+    // Add hover effect to links
+    const links = document.querySelectorAll('a');
+    links.forEach(link => {
+      link.addEventListener('mouseenter', () => {
+        cursor.style.width = '50px';
+        cursor.style.height = '50px';
+        cursor.style.borderWidth = '1px';
+        cursor.style.backgroundColor = 'rgba(254, 231, 21, 0.1)';
+      });
+      
+      link.addEventListener('mouseleave', () => {
+        cursor.style.width = '20px';
+        cursor.style.height = '20px';
+        cursor.style.borderWidth = '2px';
+        cursor.style.backgroundColor = 'transparent';
+      });
+    });
+  </script>
 </body>
 </html>
