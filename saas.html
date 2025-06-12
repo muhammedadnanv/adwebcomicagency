@@ -1,87 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>SaaS Bootcamp Registration</title>
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
-  <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
-  <style>
-    body {
-      background: radial-gradient(circle at top left, #1f2937, #000);
-      color: white;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-    .glass {
-      background: rgba(255, 255, 255, 0.05);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(10px);
-      border-radius: 1rem;
-      padding: 2rem;
-      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-      transform-style: preserve-3d;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,viewport-fit=cover">
+<title> 7 Days SaaS Boot Camp Form</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.9.4/lottie.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+<style>
+  body,html { margin:0; height:100%; overflow:hidden; background:#101820; font-family:sans-serif; }
+  #lottie-bg { position:absolute; inset:0; z-index:0; }
+  .glass-overlay { position:absolute; inset:0; background:rgba(255,255,255,0.05); backdrop-filter:blur(24px); z-index:1; }
+  #liquid-mask { position:absolute; inset:0; z-index:2; mask:url(#liquidSVG); animation:liquidShift 8s linear infinite; }
+  @keyframes liquidShift { to { transform: translateY(-20%); } }
+
+  #form-wrapper { position:relative; z-index:3; perspective:2500px; width:100%; max-width:520px; margin:auto; }
+  .glass { position:relative; transform-style:preserve-3d; background:rgba(255,255,255,0.04); backdrop-filter:blur(14px);
+            border:1px solid rgba(255,255,255,0.12); border-radius:1.75rem; padding:2.5rem;
+            box-shadow:0 20px 70px rgba(0,0,0,0.5); transition:transform 0.2s ease, box-shadow 0.2s ease; }
+  @keyframes enter { from { opacity:0; transform:translateY(30px) scale(0.97); } to { opacity:1; transform:translateY(0) scale(1); } }
+  .glass { animation:enter 1.2s ease-out; }
+
+  input, button { transition:0.3s; border:1px solid transparent; }
+  input { background:#101820; color:white; padding:0.75rem; border-radius:0.5rem; }
+  button { background:#FEE715; color:#101820; padding:0.75rem; border-radius:9999px; }
+  input:focus { outline:none; border-color:#FEE715; }
+  button:hover { transform:scale(1.03); box-shadow:0 0 15px rgba(254,231,21,0.4); }
+
+  #blob { position:absolute; width:200px; height:200px; background:rgba(254,231,21,0.1);
+          border-radius:50%; pointer-events:none; transition:transform 0.3s ease, opacity 0.3s ease; opacity:0; z-index:3; }
+
+  canvas#qr { display:block; margin:0 auto; animation:pulseQR 2s infinite ease-in-out; }
+  @keyframes pulseQR { 0%,100%{transform:scale(1);opacity:1;}50%{transform:scale(1.05);opacity:0.85;} }
+</style>
 </head>
-<body class="min-h-screen flex items-center justify-center p-4">
+<body>
 
-  <form id="bootcampForm" class="glass max-w-lg w-full space-y-4">
-    <h2 class="text-2xl font-bold text-center">🚀 SaaS Bootcamp Registration</h2>
+  <div id="lottie-bg"></div>
+  <div class="glass-overlay"></div>
+  <div id="liquid-mask"></div>
 
-    <input type="text" name="name" placeholder="Your Full Name" required class="w-full p-2 rounded bg-gray-800 text-white"/>
-    <input type="tel" name="phone" placeholder="Phone Number" required class="w-full p-2 rounded bg-gray-800 text-white"/>
-    <input type="email" name="email" placeholder="Email Address" required class="w-full p-2 rounded bg-gray-800 text-white"/>
+  <div id="form-wrapper">
+    <div id="blob"></div>
+    <form id="bootcampForm" class="glass space-y-5">
+      <h2 class="text-center text-3xl font-bold text-yellow-400">🚀 SaaS Bootcamp Reg</h2>
+      <input name="name" placeholder="Full Name" required>
+      <input name="phone" placeholder="Phone" required>
+      <input name="email" type="email" placeholder="Email" required>
+      <input name="instagram" type="url" placeholder="Instagram">
+      <input name="facebook" type="url" placeholder="Facebook">
+      <input name="linkedin" type="url" placeholder="LinkedIn">
 
-    <input type="url" name="instagram" placeholder="Instagram Profile Link" class="w-full p-2 rounded bg-gray-800 text-white"/>
-    <input type="url" name="facebook" placeholder="Facebook Profile Link" class="w-full p-2 rounded bg-gray-800 text-white"/>
-    <input type="url" name="linkedin" placeholder="LinkedIn Profile Link" class="w-full p-2 rounded bg-gray-800 text-white"/>
+      <div class="text-center space-y-2">
+        <p class="text-sm text-yellow-300">💳 Scan & pay ₹4,999 via UPI</p>
+        <p class="text-xs italic text-gray-400">adnanmuhammad4393@okicici</p>
+        <canvas id="qr"></canvas>
+        <p class="text-xs text-gray-500">Txn ID: <strong>666X999X000</strong></p>
+      </div>
+      <button type="submit">✅ Submit Registration</button>
+      <p class="text-xs text-center text-gray-400">📱 WhatsApp confirmation ahead!</p>
+    </form>
+  </div>
 
-    <div class="text-center space-y-2">
-      <p class="text-sm text-gray-300">Scan the QR below to pay ₹4,999 via UPI</p>
-<p>adnanmuhammad4393@okicici</p>
-      <canvas id="qr" class="mx-auto"></canvas>
-      <p class="text-xs text-gray-400">Transaction ID: <strong>666X999X000</strong></p>
-    </div>
-
-    <button id="submitBtn" type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
-      Submit Registration
-    </button>
-
-    <p class="text-xs text-gray-400 text-center">We’ll confirm your registration via WhatsApp.</p>
-  </form>
+  <!-- Liquid SVG filter -->
+  <svg width="0" height="0">
+    <filter id="liquidSVG"><feTurbulence type="turbulence" baseFrequency="0.03 0.05" numOctaves="2" seed="4"/>
+      <feDisplacementMap in="SourceGraphic" scale="20"/>
+    </filter>
+  </svg>
 
   <script>
-    // Generate UPI QR
-    const upiLink = "upi://pay?pa=adnanmuhammad4393@okicici&pn=AdnanMuhammad&am=4999&cu=INR";
-    new QRious({
-      element: document.getElementById("qr"),
-      value: upiLink,
-      size: 200,
-      backgroundAlpha: 0,
-      foreground: "#00ffcc"
+    // Lottie background
+    lottie.loadAnimation({ container:document.getElementById('lottie-bg'),
+      renderer:'svg',loop:true,autoplay:true,
+      path:'https://assets5.lottiefiles.com/packages/lf20_cyberspine.json'
     });
 
-    // On form submission
-    document.getElementById("bootcampForm").addEventListener("submit", function(e) {
+    // QR
+    new QRious({ element:document.getElementById("qr"),
+      value:"upi://pay?pa=adnanmuhammad4393@okicici&pn=AdnanMuhammad&am=4999&cu=INR",
+      size:180, backgroundAlpha:0, foreground:"#FEE715"
+    });
+
+    // 3D tilt & mobile gyro
+    const wrapper = document.getElementById('form-wrapper');
+    const form = wrapper.querySelector('.glass');
+    const applyTransform = (x,y) => {
+      form.style.transform = `rotateY(${x*15}deg) rotateX(${y*15}deg)`;
+      form.style.boxShadow = `${-x*20}px ${y*20}px 40px rgba(0,0,0,0.5)`;
+    };
+
+    wrapper.addEventListener('mousemove', e => {
+      const r = wrapper.getBoundingClientRect();
+      applyTransform((e.clientX - r.left)/r.width - 0.5, -(e.clientY - r.top)/r.height + 0.5);
+    });
+
+    wrapper.addEventListener('mouseleave', () => applyTransform(0,0));
+
+    window.addEventListener('deviceorientation', ev => {
+      const x = (ev.gamma || 0) / 45, y = (ev.beta || 0 - 90) / 45;
+      applyTransform(x,y);
+    });
+
+    // Blob behind focus
+    const blob = document.getElementById('blob');
+    document.querySelectorAll('input').forEach(input => {
+      input.addEventListener('focus', e => {
+        const r = e.target.getBoundingClientRect();
+        blob.style.left = (r.left + r.width/2 - 100) + 'px';
+        blob.style.top = (r.top + r.height/2 - 100) + 'px';
+        blob.style.transform = 'scale(1)';
+        blob.style.opacity = '1';
+      });
+      input.addEventListener('blur', () => {
+        blob.style.transform = 'scale(0.5)';
+        blob.style.opacity = '0';
+      });
+    });
+
+    // Submission logic
+    document.getElementById("bootcampForm").addEventListener("submit", e => {
       e.preventDefault();
-
-      const name = encodeURIComponent(document.querySelector('[name="name"]').value);
-      const phone = encodeURIComponent(document.querySelector('[name="phone"]').value);
-      const email = encodeURIComponent(document.querySelector('[name="email"]').value);
-      const instagram = encodeURIComponent(document.querySelector('[name="instagram"]').value);
-      const facebook = encodeURIComponent(document.querySelector('[name="facebook"]').value);
-      const linkedin = encodeURIComponent(document.querySelector('[name="linkedin"]').value);
-
-      const message = `👋 Hello! New Bootcamp Registration:\n\n` +
-        `👤 Name: ${name}\n📱 Phone: ${phone}\n📧 Email: ${email}\n` +
-        `📷 Instagram: ${instagram || 'N/A'}\n📘 Facebook: ${facebook || 'N/A'}\n🔗 LinkedIn: ${linkedin || 'N/A'}\n` +
-        `💸 Transaction ID: 666X999X000`;
-
-      // Send to WhatsApp
-      window.open(`https://wa.me/919656778508?text=${message}`, "_blank");
+      const f = e.target;
+      const msg = `
+👋 New Bootcamp Registration:
+👤 ${f.name.value}
+📱 ${f.phone.value}
+📧 ${f.email.value}
+Txn: 666X999X000`;
+      window.open(`https://wa.me/919656778508?text=${encodeURIComponent(msg)}`, "_blank");
     });
   </script>
-
 </body>
-      </html>
-  
+</html>
