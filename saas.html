@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SaaS Bootcamp Registration</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/qrious@4.0.2/dist/qrious.min.js"></script>
+  <style>
+    body {
+      background: radial-gradient(circle at top left, #1f2937, #000);
+      color: white;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .glass {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      border-radius: 1rem;
+      padding: 2rem;
+      box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+      transform-style: preserve-3d;
+    }
+  </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+
+  <form id="bootcampForm" class="glass max-w-lg w-full space-y-4">
+    <h2 class="text-2xl font-bold text-center">🚀 SaaS Bootcamp Registration</h2>
+
+    <input type="text" name="name" placeholder="Your Full Name" required class="w-full p-2 rounded bg-gray-800 text-white"/>
+    <input type="tel" name="phone" placeholder="Phone Number" required class="w-full p-2 rounded bg-gray-800 text-white"/>
+    <input type="email" name="email" placeholder="Email Address" required class="w-full p-2 rounded bg-gray-800 text-white"/>
+
+    <input type="url" name="instagram" placeholder="Instagram Profile Link" class="w-full p-2 rounded bg-gray-800 text-white"/>
+    <input type="url" name="facebook" placeholder="Facebook Profile Link" class="w-full p-2 rounded bg-gray-800 text-white"/>
+    <input type="url" name="linkedin" placeholder="LinkedIn Profile Link" class="w-full p-2 rounded bg-gray-800 text-white"/>
+
+    <div class="text-center space-y-2">
+      <p class="text-sm text-gray-300">Scan the QR below to pay ₹4,999 via UPI</p>
+      <canvas id="qr" class="mx-auto"></canvas>
+      <p class="text-xs text-gray-400">Transaction ID: <strong>666X999X000</strong></p>
+    </div>
+
+    <button id="submitBtn" type="submit" class="w-full bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">
+      Submit Registration
+    </button>
+
+    <p class="text-xs text-gray-400 text-center">We’ll confirm your registration via WhatsApp.</p>
+  </form>
+
+  <script>
+    // Generate UPI QR
+    const upiLink = "upi://pay?pa=adnanmuhammad4393@okicici&pn=AdnanMuhammad&am=4999&cu=INR";
+    new QRious({
+      element: document.getElementById("qr"),
+      value: upiLink,
+      size: 200,
+      backgroundAlpha: 0,
+      foreground: "#00ffcc"
+    });
+
+    // On form submission
+    document.getElementById("bootcampForm").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const name = encodeURIComponent(document.querySelector('[name="name"]').value);
+      const phone = encodeURIComponent(document.querySelector('[name="phone"]').value);
+      const email = encodeURIComponent(document.querySelector('[name="email"]').value);
+      const instagram = encodeURIComponent(document.querySelector('[name="instagram"]').value);
+      const facebook = encodeURIComponent(document.querySelector('[name="facebook"]').value);
+      const linkedin = encodeURIComponent(document.querySelector('[name="linkedin"]').value);
+
+      const message = `👋 Hello! New Bootcamp Registration:\n\n` +
+        `👤 Name: ${name}\n📱 Phone: ${phone}\n📧 Email: ${email}\n` +
+        `📷 Instagram: ${instagram || 'N/A'}\n📘 Facebook: ${facebook || 'N/A'}\n🔗 LinkedIn: ${linkedin || 'N/A'}\n` +
+        `💸 Transaction ID: 666X999X000`;
+
+      // Send to WhatsApp
+      window.open(`https://wa.me/919656778508?text=${message}`, "_blank");
+    });
+  </script>
+
+</body>
+      </html>
+  
