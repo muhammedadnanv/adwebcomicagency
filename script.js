@@ -232,3 +232,25 @@ loadingStyle.textContent = `
     }
 `;
 document.head.appendChild(loadingStyle);
+// In your script.js file
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.querySelector('.hamburger');
+    const navMenu = document.querySelector('.nav-menu');
+
+    if (hamburger && navMenu) { // Ensure elements exist before adding listeners
+        hamburger.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+            hamburger.classList.toggle('active'); // Optional: Add a class to animate hamburger to an 'X'
+        });
+
+        // Optional: Close the mobile menu when a navigation link is clicked
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (navMenu.classList.contains('active')) {
+                    navMenu.classList.remove('active');
+                    hamburger.classList.remove('active');
+                }
+            });
+        });
+    }
+});
