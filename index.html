@@ -371,31 +371,50 @@
                         </div>
                     </div>
                 </div>
-                <div class="contact-form">
-                    <form>
-                        <div class="form-group">
-                            <input type="text" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <input type="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <select required>
-                                <option value="">Select Service</option>
-                                <option value="website">Custom Website Development</option>
-                                <option value="pwa">Progressive Web Apps</option>
-                                <option value="ecommerce">E-Commerce Automation</option>
-                                <option value="engagement">Customer Engagement</option>
-                                <option value="static">Static E-commerce</option>
-                                <option value="saas">SaaS Development</option>
-                            </select>
-                        </div>
-                        <div class="form-group">
-                            <textarea placeholder="Project Details" rows="5" required></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
-                </div>
+               <div class="contact-form">
+  <form id="whatsappForm">
+    <div class="form-group">
+      <input type="text" id="name" placeholder="Your Name" required>
+    </div>
+    <div class="form-group">
+      <input type="email" id="email" placeholder="Your Email" required>
+    </div>
+    <div class="form-group">
+      <select id="service" required>
+        <option value="">Select Service</option>
+        <option value="Custom Website Development">Custom Website Development</option>
+        <option value="Progressive Web Apps">Progressive Web Apps</option>
+        <option value="E-Commerce Automation">E-Commerce Automation</option>
+        <option value="Customer Engagement">Customer Engagement</option>
+        <option value="Static E-commerce">Static E-commerce</option>
+        <option value="SaaS Development">SaaS Development</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <textarea id="details" placeholder="Project Details" rows="5" required></textarea>
+    </div>
+    <button type="submit" class="btn btn-primary">Send Message</button>
+  </form>
+</div>
+
+<script>
+  document.getElementById('whatsappForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const name = encodeURIComponent(document.getElementById('name').value.trim());
+    const email = encodeURIComponent(document.getElementById('email').value.trim());
+    const service = encodeURIComponent(document.getElementById('service').value);
+    const details = encodeURIComponent(document.getElementById('details').value.trim());
+
+    const message = `Hey, I am ${name}, my email is ${email}, I am interested in the service: ${service}. Here are the project details: ${details}`;
+
+    const phoneNumber = '919656778508'; // use international format without "+"
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
+
+    window.open(whatsappURL, '_blank');
+  });
+</script>
+
             </div>
         </div>
     </section>
