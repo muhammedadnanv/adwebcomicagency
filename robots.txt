@@ -1,8 +1,7 @@
 User-agent: GPTBot
 Allow: /
 
-User-agent: *
-Disallow:
+User-agent: Googlebot
+Allow: /
 
 Sitemap: https://adwebcomicagency.vercel.app/sitemap.xml
-
