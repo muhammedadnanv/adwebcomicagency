@@ -542,6 +542,33 @@
 <elevenlabs-convai agent-id="agent_01jxhbepsvfya81z2necc5vs43"></elevenlabs-convai>
 <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script> 
     <script src="script.js"></script>
+  <script>
+  async function loadJSON(path) {
+    try {
+      const response = await fetch(path);
+      if (!response.ok) throw new Error(`Failed to load ${path}`);
+      return await response.json();
+    } catch (error) {
+      console.error(`Error loading ${path}:`, error);
+      return null;
+    }
+  }
+
+  Promise.all([
+    loadJSON('/OAI-SearchBot.json'),
+    loadJSON('/ChatGPT-User.json'),
+    loadJSON('/GPTBot.json')
+  ])
+  .then(([oaiData, chatgptData, gptbotData]) => {
+    console.log('OAI-SearchBot:', oaiData);
+    console.log('ChatGPT-User:', chatgptData);
+    console.log('GPTBot:', gptbotData);
+
+    // You can now do something with the data
+    // Example: Display or integrate into the page
+  });
+</script>
+
 </body>
 </html>
          
