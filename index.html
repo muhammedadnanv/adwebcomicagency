@@ -607,21 +607,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     // Example: Display or integrate into the page
   });
 </script>
-<script>
-(function(){
-  const m=document.createElement('div');
-  m.id='adblock-message';
-  m.style='display:none;background:#f44336;color:#fff;padding:16px;text-align:center;font-family:sans-serif;position:fixed;top:0;left:0;right:0;z-index:9999;';
-  m.innerText='Please disable your ad blocker to continue using this site.';
-  document.body.appendChild(m);
-  const b=document.createElement('div');
-  b.className='adsbox';
-  b.style='height:1px;position:absolute;left:-999px;';
-  b.innerHTML='&nbsp;';
-  document.body.appendChild(b);
-  setTimeout(()=>{if(!b.offsetHeight)m.style.display='block'; b.remove();},100);
-})();
-</script>
+
 </body>
 </html>
          
