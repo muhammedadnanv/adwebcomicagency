@@ -1,0 +1,390 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+
+main {
+  background-color: #101820;
+  padding: 1rem;
+}
+
+.media-primary,
+.media-secondary {
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.media-primary {
+  aspect-ratio: 346 / 300;
+  clip-path: url(#media-clip-path-default);
+  position: relative;
+}
+
+.media-primary img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.media-secondary {
+  aspect-ratio: 122 / 119;
+  background-color: #465e5f;
+  border-radius: 12px;
+  justify-self: end;
+  width: 35%;
+}
+
+.media-secondary svg {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.text-heading {
+  background-color: #fee715;
+  border-radius: 0.75rem;
+  clip-path: url(#clip-heading);
+  font-size: 2.5rem;
+  font-weight: bold;
+  line-height: 1.15;
+  margin-block-start: 1.5rem;
+  padding: 1rem 3rem 1rem 1rem;
+  position: relative;
+}
+
+.text-body {
+  color: #fff;
+  margin-block-start: 1.5rem;
+}
+
+.ctas {
+  display: flex;
+  gap: 1rem;
+  margin-block-start: 1.5rem;
+}
+
+.cta {
+  border: 1px solid #fff;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  padding: 0.5rem 1rem;
+  text-align: center;
+}
+
+.cta-primary {
+  background-color: #fff;
+  color: #15272a;
+}
+
+.cta-secondary {
+  color: #ffffff;
+}
+
+.content-container {
+  container-name: content-container;
+  container-type: inline-size;
+  display: grid;
+  margin-inline: auto;
+  max-inline-size: 30rem;
+}
+
+.pseudo-corner {
+  display: none;
+}
+
+@container content-container (min-width: 343px) {
+  .text-heading {
+    max-inline-size: 85%;
+    background-color: #fee715;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .content-container {
+    max-inline-size: 75rem;
+  }
+}
+
+@container content-container (min-width: 736px) {
+  .media-primary {
+    align-self: end;
+    clip-path: url(#media-clip-path-full);
+    width: 50%;
+  }
+
+  .media-secondary {
+    aspect-ratio: 240 / 220;
+    width: 20%;
+  }
+
+  .text-content {
+    grid-area: 1 / 1 / 2 / 2;
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-rows: 1fr auto;
+  }
+
+  .text-heading {
+    align-items: start;
+    background-color: unset;
+    display: grid;
+    clip-path: unset;
+    font-optical-sizing: auto;
+    font-size: 7.125cqw;
+    font-weight: 700;
+    font-style: normal;
+    justify-items: start;
+    margin-block-start: 0;
+    max-inline-size: 100%;
+    padding: 0;
+  }
+
+  .pseudo-corner {
+    color: #b6d2d3;
+    height: 24px;
+    pointer-events: none;
+    position: absolute;
+    width: 24px;
+  }
+
+  .text-heading-aligned {
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .span-1 {
+    border-radius: 0.75rem 0.75rem 0 0.75rem;
+  }
+
+  .span-2 {
+    align-self: end;
+    border-radius: 0 0 0 0.75rem;
+  }
+
+  .pseudo-corner {
+    display: block;
+  }
+
+  .span-2 .pseudo-corner:first-child,
+  .span-3 .pseudo-corner {
+    left: -24px;
+    top: 0;
+  }
+
+  .span-2 .pseudo-corner:last-child {
+    bottom: 0;
+    right: -24px;
+    transform: rotate(180deg);
+  }
+
+  .span-3 {
+    border-radius: 0 0.75rem 0.75rem 0.75rem;
+    justify-self: end;
+  }
+
+  .span-1,
+  .span-2,
+  .span-3 {
+    background-color: #b6d2d3;
+    padding: 0.25rem 1rem 0.75rem;
+    position: relative;
+  }
+
+  .text-body {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .text-body-container {
+    padding-inline-start: 1.5rem;
+    width: 50%;
+  }
+}
+
+@container content-container (min-width: 736px) {
+  .text-body-container {
+    font-size: 1.9cqw;
+    padding-inline-start: 1.5rem;
+    min-height: 160px;
+    width: 48%;
+  }
+
+  .media-primary {
+    width: 51%;
+  }
+
+  .media-secondary {
+    aspect-ratio: 260 / 240;
+    width: 20%;
+  }
+}
+
+@container content-container (min-width: 980px) {
+  .text-body-container {
+    padding-inline-start: 1.5rem;
+    width: 46%;
+  }
+}
+
+@container content-container (min-width: 1088px) {
+  .text-body-container {
+    font-size: 1.5cqw;
+    padding-inline-start: 1.5rem;
+    min-height: unset;
+    width: 45%;
+  }
+
+  .media-primary {
+    aspect-ratio: 320 / 195;
+    width: 53%;
+  }
+
+  .media-secondary {
+    aspect-ratio: 270 / 215;
+    width: 22%;
+  }
+}
+
+@container content-container (min-width: 1200px) {
+  .media-primary {
+    clip-path: url(#media-clip-path-full);
+    width: 45%;
+  }
+
+  .media-primary {
+    aspect-ratio: 320 / 195;
+    width: 53%;
+  }
+
+  .media-secondary {
+    aspect-ratio: 250 / 195;
+    width: 22%;
+  }
+
+  .text-body-container {
+    padding-block-start: 0;
+    padding-inline-start: 1.5rem;
+    width: 46%;
+  }
+}
+
+/* Animation */
+
+.media-secondary {
+  display: grid;
+  position: relative;
+  overflow: hidden;
+}
+
+.animated-icon {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  grid-area: 1 / 1 / 2 / 2;
+}
+
+.animated-icon img {
+  height: auto;
+  opacity: 0;
+  width: 80%;
+  animation: rotateImages 9s infinite cubic-bezier(0.4, 0, 0.2, 1);
+  transform-origin: center center;
+}
+
+.animated-icon:nth-child(1) img {
+  animation-delay: 0s;
+}
+
+.animated-icon:nth-child(2) img {
+  animation-delay: 3s;
+  animation-name: rotateImagesReverse;
+}
+
+.animated-icon:nth-child(3) img {
+  animation-delay: 6s;
+}
+
+@keyframes rotateImages {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) rotate(-15deg);
+  }
+  5% {
+    opacity: 1;
+    transform: scale(1.1) rotate(5deg);
+  }
+  10% {
+    transform: scale(1) rotate(0deg);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+  33% {
+    opacity: 0;
+    transform: scale(0.8) rotate(15deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8) rotate(15deg);
+  }
+}
+
+@keyframes rotateImagesReverse {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) rotate(15deg);
+  }
+  5% {
+    opacity: 1;
+    transform: scale(1.1) rotate(-5deg);
+  }
+  10% {
+    transform: scale(1) rotate(0deg);
+  }
+  30% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+  33% {
+    opacity: 0;
+    transform: scale(0.8) rotate(-15deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.8) rotate(-15deg);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* Base styles */
+
+body {
+  background-color: #15272a;
+  font-family: "Montserrat", sans-serif;
+  font-optical-sizing: auto;
+  font-style: normal;
+  line-height: 1.75;
+  margin: 0;
+}
+
+h1 {
+  font-weight: 700;
+  line-height: 1.25;
+  margin: 0;
+}
+
+p {
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  display: block;
+  height: auto;
+  max-width: 100%;
+}
