@@ -587,15 +587,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
     </section>
 -->
-
-  <section id="contact" class="contact">
+    <section id="contact" class="contact">
   <div class="container">
+
+    <!-- Section Header -->
     <div class="section-header">
       <h2>Get In Touch</h2>
       <p>Ready to Transform Your Digital Presence?</p>
     </div>
 
     <div class="contact-content">
+
       <!-- Contact Info -->
       <div class="contact-info">
         <div class="contact-item">
@@ -659,6 +661,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
           <button type="submit" class="btn btn-primary">Send Message</button>
         </form>
       </div>
+
     </div>
   </div>
 </section>
@@ -667,23 +670,35 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   document.getElementById('whatsappForm').addEventListener('submit', function (e) {
     e.preventDefault();
 
-    const name = encodeURIComponent(document.getElementById('name').value.trim());
-    const email = encodeURIComponent(document.getElementById('email').value.trim());
-    const service = encodeURIComponent(document.getElementById('service').value);
-    const details = encodeURIComponent(document.getElementById('details').value.trim());
+    const name = document.getElementById('name').value.trim();
+    const email = document.getElementById('email').value.trim();
+    const service = document.getElementById('service').value;
+    const details = document.getElementById('details').value.trim();
 
+    // Validation
     if (!name || !email || !service || !details) {
       alert("Please fill in all fields before sending.");
       return;
     }
 
-    const message = `Hey, I am ${name}, my email is ${email}, I am interested in the service: ${service}. Here are the project details: ${details}`;
-    const phoneNumber = '919656778508'; // International format without "+"
+    // Encode for URL
+    const encodedName = encodeURIComponent(name);
+    const encodedEmail = encodeURIComponent(email);
+    const encodedService = encodeURIComponent(service);
+    const encodedDetails = encodeURIComponent(details);
+
+    // Message format
+    const message = `Hey, I am ${encodedName}, my email is ${encodedEmail}, I am interested in the service: ${encodedService}. Here are the project details: ${encodedDetails}`;
+
+    // WhatsApp link (international format without "+")
+    const phoneNumber = '919656778508';
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
 
+    // Open WhatsApp chat
     window.open(whatsappURL, '_blank');
   });
 </script>
+
 
     <!-- Footer -->
     <footer class="footer">
