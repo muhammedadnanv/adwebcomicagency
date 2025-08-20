@@ -451,103 +451,14 @@ At Ad Web Comic Agency, your project isn’t just another task—it’s my perso
     </section>
 -->
     <!-- Contact Section 
-    <section id="contact" class="contact">
-        <div class="container">
-            <div class="section-header">
-                <h2>Get In Touch</h2>
-                <p>Ready to Transform Your Digital Presence?</p>
-            </div>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-phone"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Phone</h3>
-                            <p>+91 9656778508</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-envelope"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Email</h3>
-                            <p>adwebcomicagency@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="contact-item">
-                        <div class="contact-icon">
-                            <i class="fas fa-clock"></i>
-                        </div>
-                        <div class="contact-details">
-                            <h3>Response Time</h3>
-                            <p>Within 24 Hours</p>
-                        </div>
-                    </div>
-                </div>
-    <div class="contact-form">
-  <form id="whatsappForm">
-    <div class="form-group">
-      <input type="text" id="name" placeholder="Your Name" required>
-    </div>
-    <div class="form-group">
-      <input type="email" id="email" placeholder="Your Email" required>
-    </div>
-    <div class="form-group">
-      <select id="service" required>
-        <option value="">Select Service</option>
-        <option value="Custom Website Development">Custom Website Development</option>
-        <option value="Progressive Web Apps">Progressive Web Apps</option>
-        <option value="E-Commerce Automation">E-Commerce Automation</option>
-        <option value="Customer Engagement">Customer Engagement</option>
-        <option value="Static E-commerce">Static E-commerce</option>
-        <option value="Done-for-You LinkedIn Growth">Done-for-You LinkedIn Growth</option>
-      </select>
-    </div>
-    <div class="form-group">
-      <textarea id="details" placeholder="Project Details" rows="5" required></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary">Send Message</button>
-  </form>
-
-  
-</div>
-  
-<script>
-  document.getElementById('whatsappForm').addEventListener('submit', function (e) {
-    e.preventDefault();
-
-    const name = encodeURIComponent(document.getElementById('name').value.trim());
-    const email = encodeURIComponent(document.getElementById('email').value.trim());
-    const service = encodeURIComponent(document.getElementById('service').value);
-    const details = encodeURIComponent(document.getElementById('details').value.trim());
-
-    const message = `Hey, I am ${name}, my email is ${email}, I am interested in the service: ${service}. Here are the project details: ${details}`;
-
-    const phoneNumber = '919656778508'; // use international format without "+"
-    const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
-
-    window.open(whatsappURL, '_blank');
-  });
-</script>
-
-            </div>
-        </div>
-    </section>
--->
-    <section id="contact" class="contact">
+   <section id="contact" class="contact">
   <div class="container">
-
-    <!-- Section Header -->
     <div class="section-header">
       <h2>Get In Touch</h2>
       <p>Ready to Transform Your Digital Presence?</p>
     </div>
 
     <div class="contact-content">
-
       <!-- Contact Info -->
       <div class="contact-info">
         <div class="contact-item">
@@ -556,7 +467,7 @@ At Ad Web Comic Agency, your project isn’t just another task—it’s my perso
           </div>
           <div class="contact-details">
             <h3>Phone</h3>
-            <p>+91 9656778508</p>
+            <p><a href="tel:+919656778508">+91 9656778508</a></p>
           </div>
         </div>
 
@@ -566,7 +477,7 @@ At Ad Web Comic Agency, your project isn’t just another task—it’s my perso
           </div>
           <div class="contact-details">
             <h3>Email</h3>
-            <p>adwebcomicagency@gmail.com</p>
+            <p><a href="mailto:adwebcomicagency@gmail.com">adwebcomicagency@gmail.com</a></p>
           </div>
         </div>
 
@@ -581,77 +492,163 @@ At Ad Web Comic Agency, your project isn’t just another task—it’s my perso
         </div>
       </div>
 
-      <!-- WhatsApp Form -->
+      <!-- Contact Form -->
       <div class="contact-form">
         <form id="whatsappForm">
           <div class="form-group">
+            <label for="name" class="sr-only">Your Name</label>
             <input type="text" id="name" placeholder="Your Name" required>
           </div>
 
           <div class="form-group">
+            <label for="email" class="sr-only">Your Email</label>
             <input type="email" id="email" placeholder="Your Email" required>
           </div>
 
           <div class="form-group">
+            <label for="service" class="sr-only">Select Service</label>
             <select id="service" required>
               <option value="">Select Service</option>
+              <option value="Pre-Designed Website">Pre-Designed Website</option>
               <option value="Custom Website Development">Custom Website Development</option>
               <option value="Progressive Web Apps">Progressive Web Apps</option>
-              <option value="pre-desgined website "> Pre-Desgined Website </option>
-              <!--
-              <option value="E-Commerce Automation">E-Commerce Automation</option>
-              <option value="Customer Engagement">Customer Engagement</option>
-              <option value="Static E-commerce">Static E-commerce</option>
-              <option value="Done-for-You LinkedIn Growth">Done-for-You LinkedIn Growth</option>
-              -->
             </select>
           </div>
 
           <div class="form-group">
+            <label for="details" class="sr-only">Project Details</label>
             <textarea id="details" placeholder="Project Details" rows="5" required></textarea>
           </div>
 
           <button type="submit" class="btn btn-primary">Send Message</button>
         </form>
       </div>
-
-    
+    </div>
   </div>
 </section>
 
+<!-- WhatsApp Form Script -->
 <script>
   document.getElementById('whatsappForm').addEventListener('submit', function (e) {
     e.preventDefault();
 
-    const name = document.getElementById('name').value.trim();
-    const email = document.getElementById('email').value.trim();
-    const service = document.getElementById('service').value;
-    const details = document.getElementById('details').value.trim();
+    const name = encodeURIComponent(document.getElementById('name').value.trim());
+    const email = encodeURIComponent(document.getElementById('email').value.trim());
+    const service = encodeURIComponent(document.getElementById('service').value);
+    const details = encodeURIComponent(document.getElementById('details').value.trim());
 
-    // Validation
-    if (!name || !email || !service || !details) {
-      alert("Please fill in all fields before sending.");
+    if (!service) {
+      alert('Please select a service before submitting.');
       return;
     }
 
-    // Encode for URL
-    const encodedName = encodeURIComponent(name);
-    const encodedEmail = encodeURIComponent(email);
-    const encodedService = encodeURIComponent(service);
-    const encodedDetails = encodeURIComponent(details);
-
-    // Message format
-    const message = `Hey, I am ${encodedName}, my email is ${encodedEmail}, I am interested in the service: ${encodedService}. Here are the project details: ${encodedDetails}`;
-
-    // WhatsApp link (international format without "+")
-    const phoneNumber = '919656778508';
+    const message = `Hey, I am ${name}, my email is ${email}. I am interested in: ${service}. Here are the project details: ${details}`;
+    const phoneNumber = '919656778508'; // International format without '+'
     const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
 
-    // Open WhatsApp chat
     window.open(whatsappURL, '_blank');
   });
 </script>
 
+-->
+   <section id="contact" class="contact">
+  <div class="container">
+    <div class="section-header">
+      <h2>Get In Touch</h2>
+      <p>Ready to Transform Your Digital Presence?</p>
+    </div>
+
+    <div class="contact-content">
+      <!-- Contact Info -->
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-phone"></i>
+          </div>
+          <div class="contact-details">
+            <h3>Phone</h3>
+            <p><a href="tel:+919656778508">+91 9656778508</a></p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-envelope"></i>
+          </div>
+          <div class="contact-details">
+            <h3>Email</h3>
+            <p><a href="mailto:adwebcomicagency@gmail.com">adwebcomicagency@gmail.com</a></p>
+          </div>
+        </div>
+
+        <div class="contact-item">
+          <div class="contact-icon">
+            <i class="fas fa-clock"></i>
+          </div>
+          <div class="contact-details">
+            <h3>Response Time</h3>
+            <p>Within 24 Hours</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form">
+        <form id="whatsappForm">
+          <div class="form-group">
+            <label for="name" class="sr-only">Your Name</label>
+            <input type="text" id="name" placeholder="Your Name" required>
+          </div>
+
+          <div class="form-group">
+            <label for="email" class="sr-only">Your Email</label>
+            <input type="email" id="email" placeholder="Your Email" required>
+          </div>
+
+          <div class="form-group">
+            <label for="service" class="sr-only">Select Service</label>
+            <select id="service" required>
+              <option value="">Select Service</option>
+              <option value="Pre-Designed Website">Pre-Designed Website</option>
+              <option value="Custom Website Development">Custom Website Development</option>
+              <option value="Progressive Web Apps">Progressive Web Apps</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="details" class="sr-only">Project Details</label>
+            <textarea id="details" placeholder="Project Details" rows="5" required></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary">Send Message</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WhatsApp Form Script -->
+<script>
+  document.getElementById('whatsappForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const name = encodeURIComponent(document.getElementById('name').value.trim());
+    const email = encodeURIComponent(document.getElementById('email').value.trim());
+    const service = encodeURIComponent(document.getElementById('service').value);
+    const details = encodeURIComponent(document.getElementById('details').value.trim());
+
+    if (!service) {
+      alert('Please select a service before submitting.');
+      return;
+    }
+
+    const message = `Hey, I am ${name}, my email is ${email}. I am interested in: ${service}. Here are the project details: ${details}`;
+    const phoneNumber = '919656778508'; // International format without '+'
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${message}`;
+
+    window.open(whatsappURL, '_blank');
+  });
+</script>
 
     <!-- Footer -->
     <footer class="footer">
@@ -1010,6 +1007,7 @@ At Ad Web Comic Agency, your project isn’t just another task—it’s my perso
 
 </body>
 </html>
+
 
 
 
