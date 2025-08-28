@@ -978,9 +978,148 @@ At Ad Web Comic Agency, your project isn’t just another task—it’s my perso
   "description": "Ad Web Comic Agency is a website development agency specializing in creative, responsive, and SEO-friendly websites for businesses across India."
 }
 </script>
+<!-- Ad Web Comic Agency: Popup Widget (No Background Overlay) -->
+
+<style>
+  :root {
+    --primary-dark: #101820;
+    --primary-yellow: #FEE715;
+    --secondary-dark: #1a1f2e;
+    --text-light: #ffffff;
+    --text-gray: #a0a0a0;
+    --gradient: linear-gradient(135deg, var(--primary-dark) 0%, var(--secondary-dark) 100%);
+  }
+
+  .awc-popup * { box-sizing: border-box; }
+  .awc-popup-overlay {
+    position: fixed;
+    inset: 0;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    padding: 20px;
+    pointer-events: none; /* ensures only card is clickable */
+  }
+
+  .awc-popup-card {
+    width: 100%;
+    max-width: 500px;
+    background: var(--primary-dark);
+    border: 2px solid var(--primary-yellow);
+    border-radius: 14px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    padding: 24px;
+    text-align: center;
+    transform: translateY(10px) scale(.98);
+    opacity: 0;
+    transition: transform 220ms cubic-bezier(.2,.9,.25,1), opacity 220ms;
+    font-family: 'Rajdhani', sans-serif;
+    color: var(--text-light);
+    pointer-events: auto; /* card is clickable */
+  }
+
+  .awc-popup-overlay.show { display: flex; }
+  .awc-popup-card.show { transform: translateY(0) scale(1); opacity: 1; }
+
+  .awc-popup-head {
+    font-weight: 700;
+    font-size: 20px;
+    margin-bottom: 8px;
+    color: var(--primary-yellow);
+  }
+  .awc-popup-body {
+    font-size: 16px;
+    color: var(--text-gray);
+    line-height: 1.5;
+    margin-bottom: 20px;
+  }
+
+  .awc-btn {
+    display: inline-block;
+    padding: 12px 20px;
+    background: var(--primary-yellow);
+    color: var(--primary-dark);
+    font-weight: 700;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.25s;
+  }
+  .awc-btn:hover {
+    background: #ffd900;
+  }
+
+  .awc-close {
+    position: absolute;
+    right: 16px;
+    top: 12px;
+    background: transparent;
+    border: 0;
+    font-size: 22px;
+    color: var(--text-gray);
+    cursor: pointer;
+  }
+</style>
+
+<div id="awcPopup" class="awc-popup-overlay" aria-hidden="true">
+  <div class="awc-popup-card">
+    <button class="awc-close" id="awcCloseBtn" aria-label="Close popup">&times;</button>
+
+    <div class="awc-popup-head">Business owners, let’s be honest.</div>
+
+    <div class="awc-popup-body">
+      Why spend ₹90,000 on a website when a clean, professional static site does the job?  
+      At <strong>Ad Web Comic Agency</strong>, we build them for just <strong>₹15,000/-</strong>.
+    </div>
+
+    <a href="#contact" class="awc-btn">Contact us </a>
+  </div>
+</div>
+
+<script>
+  (function () {
+    const overlay = document.getElementById('awcPopup');
+    const card = overlay.querySelector('.awc-popup-card');
+    const closeBtn = document.getElementById('awcCloseBtn');
+    let visible = false;
+
+    function showPopup() {
+      if (visible) return;
+      overlay.classList.add('show');
+      card.classList.add('show');
+      overlay.setAttribute('aria-hidden', 'false');
+      visible = true;
+    }
+
+    function hidePopup() {
+      card.classList.remove('show');
+      setTimeout(() => {
+        overlay.classList.remove('show');
+        overlay.setAttribute('aria-hidden', 'true');
+        visible = false;
+      }, 220);
+    }
+
+    // show popup every 10s
+    const INTERVAL_MS = 10000;
+    setInterval(showPopup, INTERVAL_MS);
+
+    // first show after 2s
+    window.addEventListener('load', () => {
+      setTimeout(showPopup, 2000);
+    });
+
+    // close button
+    closeBtn.addEventListener('click', hidePopup);
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && visible) hidePopup(); });
+  })();
+</script>
 
 </body>
 </html>
+
 
 
 
